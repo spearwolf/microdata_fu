@@ -2,14 +2,15 @@
 
 Gem::Specification.new do |s|
   s.name = %q{microdata_fu}
-  s.version = "0.1.2"
+  s.version = "0.1.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Wolfger Schramm"]
   s.date = %q{2009-02-19}
   s.description = %q{Read-out (rails generated) microdata from javascript}
   s.email = %q{wolfger@spearwolf.de}
-  s.files = ["README.rdoc", "VERSION.yml", "lib/microdata_fu.rb", "lib/microdata_fu_helper.rb"]
+  s.extra_rdoc_files = ["README.rdoc"]
+  s.files = ["MIT-LICENSE", "README.rdoc", "lib/microdata_fu.rb", "lib/microdata_fu_helper.rb", "rails/init.rb"]
   s.has_rdoc = true
   s.homepage = %q{http://github.com/spearwolf/microdata_fu}
   s.rdoc_options = ["--inline-source", "--charset=UTF-8"]
