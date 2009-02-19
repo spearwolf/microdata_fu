@@ -1,12 +1,12 @@
-require 'rubygems'
-require 'rake'
-require 'echoe'
-
-Echoe.new("microdata_fu", "0.1.0") do |p|
-  p.description = "Read rails generated microdata from javascript"
-  p.url         = "http://github.com/spearwolf/microdata_fu"
-  p.author      = "Wolfger Schramm"
-  p.email       = "wolfger@spearwolf.de"
-  p.development_dependencies = []
+begin
+  require 'jeweler'
+  Jeweler::Tasks.new do |s|
+    s.name = "microdata_fu"
+    s.description = "Read-out (rails generated) microdata from javascript"
+    s.email = "wolfger@spearwolf.de"
+    s.homepage = "http://github.com/spearwolf/microdata_fu"
+    s.authors = ["Wolfger Schramm"]
+  end
+rescue LoadError
+  puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
 end
-
