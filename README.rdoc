@@ -1,0 +1,53 @@
+= microdata_fu (rails plugin)
+
+A simple rails plugin which enables you to..
+
+- store <em>non-visible data</em> (microdata) into your html
+- read-out the data from javascript
+
+
+== How to Install
+
+First, add microdata_fu to your list of gems in <tt>config/environment.rb</tt>:
+
+    config.gem 'spearwolf-microdata_fu', :lib => 'microdata_fu', :source => 'http://gems.github.com'
+
+Then insert into your html layout the microdata_fu tag (<em>e.g.</em> <tt>app/views/layouts/application.html.erb</tt>):
+
+    <head>
+      ..
+      <%= microdata_fu %>
+      ..
+    </head>
+
+
+== Usage Example
+
+=== Define microdata in your controller
+
+    class MyController << ApplicationController
+      def index
+        microdata :foo, 'foo'
+        microdata :bar, { :abc => 'ABC', :xyz => 123 }
+        microdata :user, User.find(params[:id])
+      end
+    end 
+
+
+=== Read-out microdata from javascript
+
+In javascript you can read-out the microdata through the microdata_fu api:
+
+    var foo = microdata_fu.read('foo');
+
+or use the optional callback function:
+
+    mircodata_fu.read('bar', function(bar) {
+        /* ...do whatever you want with bar here...
+           if bar is undefined the code won't be executed */
+    });
+
+
+== Author
+
+Copyright (c) 2008-2009 Wolfger Schramm <wolfger@spearwolf.de>, released under the MIT license
