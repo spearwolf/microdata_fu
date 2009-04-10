@@ -31,8 +31,12 @@ Then insert into your html layout the microdata_fu tag (<em>e.g.</em> <tt>app/vi
         microdata :bar, { :abc => 'ABC', :xyz => 123 }
         microdata :user, User.find(params[:id])
       end
-    end 
+    end
 
+=== Set microdata storage type
+
+    microdata :foo, 'foo', :flash => true    # flash storage is default
+    microdata :bar, 'plah!', :session => true  # use session storage
 
 === Read-out microdata from javascript
 
@@ -44,7 +48,7 @@ or use the optional callback function:
 
     mircodata_fu.read('bar', function(bar) {
         /* ...do whatever you want with bar here...
-           if bar is undefined the code won't be executed */
+           if bar is undefined this callback won't be executed */
     });
 
 
