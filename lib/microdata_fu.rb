@@ -11,7 +11,7 @@ module MicrodataFu
     else
       (flash[:microdata] ||= {})[key.to_s] = value
     end
-    # TODO store[key.to_s] = value
+    # TODO put value into custom store
   end
 
   private
@@ -25,7 +25,6 @@ module MicrodataFu
     end
 
     #def store
-      # TODO store
-      #@@md_store ||= {}
+      # TODO define custom store
     #end
 end

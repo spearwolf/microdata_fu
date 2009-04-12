@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{microdata_fu}
-  s.version = "0.2.0"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Wolfger Schramm"]
-  s.date = %q{2009-04-10}
+  s.date = %q{2009-04-12}
   s.description = %q{Read-out (rails generated) microdata from javascript}
   s.email = %q{wolfger@spearwolf.de}
   s.extra_rdoc_files = [

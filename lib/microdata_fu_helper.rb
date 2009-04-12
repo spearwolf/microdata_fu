@@ -8,9 +8,10 @@ module MicrodataFuHelper
   private
 
     def microdata_values
-      h = {}
-      h.merge!(session[:microdata]) unless session[:microdata].nil?
-      h.merge!(flash[:microdata]) unless flash[:microdata].nil?
-      # TODO store
+      returning({}) do |h|
+        h.merge!(session[:microdata]) unless session[:microdata].nil?
+        h.merge!(flash[:microdata]) unless flash[:microdata].nil?
+        # TODO merge values from custom store
+      end
     end
 end
