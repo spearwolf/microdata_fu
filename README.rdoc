@@ -35,7 +35,8 @@ Then insert into your html layout the microdata_fu tag (<em>e.g.</em> <tt>app/vi
 
 === Set microdata storage type
 
-    microdata :foo, 'foo', :flash => true    # flash storage is default
+    microdata :foo, 'bar'                      # by default values are stored in controller instance
+    microdata :plah, 'foo', :flash => true     # use rails flash storage
     microdata :bar, 'plah!', :session => true  # use session storage
 
 === Read-out microdata from javascript
@@ -54,4 +55,4 @@ or use the optional callback function:
 
 == Author
 
-Copyright (c) 2008-2009 Wolfger Schramm <wolfger@spearwolf.de>, released under the MIT license
+Copyright (c) 2008-2010 Wolfger Schramm <wolfger@spearwolf.de>, released under the MIT license
