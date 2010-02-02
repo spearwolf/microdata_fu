@@ -1,30 +1,28 @@
 # MicrodataFu
 module MicrodataFu
 
+  def self.included(base)
+    base.instance_eval "helper_method :microdata_values"
+  end
+
   def microdata key, value, options = {}
     value = value.respond_to?(:to_json) ? value.to_json : value.to_s.to_json
-    #if use_flash?(options)
-      #(flash[:microdata] ||= {})[key.to_s] = value
-    #elsif use_session?(options)
-    if use_session?(options)
+    if options[:flash] == true
+      (flash[:microdata] ||= {})[key.to_s] = value
+    elsif options[:session] == true
       (session[:microdata] ||= {})[key.to_s] = value
     else
-      (flash[:microdata] ||= {})[key.to_s] = value
+      (@microdata_values ||= {})[key.to_s] = value
     end
-    # TODO put value into custom store
   end
 
   private
 
-    def use_flash? options
-      options[:flash] == true
+  def microdata_values
+    returning({}) do |h|
+      h.merge!(session[:microdata]) unless session[:microdata].nil?
+      h.merge!(flash[:microdata]) unless flash[:microdata].nil?
+      h.merge!(@microdata_values) if @microdata_values
     end
-
-    def use_session? options
-      options[:session] == true
-    end
-
-    #def store
-      # TODO define custom store
-    #end
+  end
 end
